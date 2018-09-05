@@ -1,0 +1,62 @@
+
+<h2>Book Appointment</h2>
+<% form_for @appointment do |f| %>
+  <%= f.error_messages %>
+  <div class="field" >
+    <%= f.label :department, "Department"%><br />
+    <%= f.select :department_id, options_for_select(Department.all.map {|c| [c.name, c.id]}),{:include_blank => "Choose Department"}, :onchange => "update_doctorsj();" %>                            
+    <%= image_tag("loader.gif",:border => 0, :id => "loader1", :style =>"display: none;" ) %>
+  </div>
+
+  <div class="field" id="doctors_list">
+     <%= f.label :doctor, "Doctor"%><br />
+     <%= f.select :doctor_id, [['select doctor', nil]],  :onchange=> "update_slots();"%>
+         <%= image_tag("loader.gif",:border => 0, :id => "loader2", :style =>"display: none;" ) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :appointment_date, "Appointment Date" %><br />
+    <%= f.date_select :appointment_date, {:start_year=>Date.current.year, :end_year => 2020},:onchange=> "update_slots();"%> 
+        <%= image_tag("loader.gif",:border => 0, :id => "loader3", :style =>"display: none;" ) %>
+
+  </div>
+ 
+  <div class="field" id="slot_list">
+      <%= f.label :slot, "Slots"%>
+      <%= f.select :time_slot_id,[['select slot', nil]] %><br />
+  </div>
+
+<div class="actions"><%= f.submit "Create" %></div>
+<% end %>
+
+<script type="text/javascript">
+function update_doctorsj() {
+    jQuery("#loader1").show();
+    d_id = document.getElementById("appointment_department_id").value;
+    jQuery.get('/appointments/update_doctors', {id: d_id}, function () {
+      jQuery("#loader1").hide();
+      });
+  }
+
+</script>
+<script type="text/javascript">
+function update_slots() {
+      jQuery("#loader2").show();
+      jQuery("#loader3").show();
+      doc_id = document.getElementById("appointment_doctor_id").value;
+      date= document.getElementById("appointment_appointment_date_1i").value +"-"+parseInt(document.getElementById("appointment_appointment_date_2i").value).toPaddedString(2) + '-' + parseInt(document.getElementById("appointment_appointment_date_3i").value).toPaddedString(2);
+      console.log(date);
+      if(doc_id !=="" && date.length === 10){      
+       jQuery.get('/appointments/update_slots', {id: doc_id, date:date}, function () {
+                 jQuery("#loader2").hide();
+                 jQuery("#loader3").hide();
+
+
+      });
+    }
+      
+      
+  }
+</script>
+
+

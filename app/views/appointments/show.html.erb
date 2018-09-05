@@ -1,0 +1,8 @@
+<p>Appointment Date <%=@appointment.appointment_date%></p>
+<p style="color:#000"><%=@appointment.id%></p>
+<p>Doctor Name <%=@appointment.doctor.first_name%></p>
+<p>Appointment Booked By <%=@appointment.patient.first_name%></p>
+<p>Slot Booked :<%=@appointment.time_slot.start_time.strftime("%I:%M:%p")%>  - <%=@appointment.time_slot.end_time.strftime("%I:%M:%p")%></p>
+
+
+

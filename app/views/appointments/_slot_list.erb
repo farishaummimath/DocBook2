@@ -1,0 +1,4 @@
+<br />
+<%= label :time_slot, "Slots"%><br />
+
+<%= select :appointment,:time_slot_id, options_for_select(@slots.map {|c| [c.start_time.strftime('%I:%M:%p')+' '+c.end_time.strftime('%I:%M:%p'),c.id]})%>

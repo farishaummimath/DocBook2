@@ -1,0 +1,40 @@
+<h1>All Bed Allocations</h1>
+<% if @bedallocations.empty?  %>
+<p style="color:#900"><i>------ No bedallocations to list----</i></p>
+
+<% else %>
+<table>
+  <tr>
+    <th>Room Number</th>
+    <th>Bed Number </th>
+    <th>Allocated to Patient</th>
+    <th>Comments</th>
+
+  </tr>
+
+<% for bedallocation in @bedallocations %>
+  <tr style="color:#000;">
+      <td><%=h bedallocation.room.room_number %></td>
+      <td><%=h bedallocation.bed.bed_number %></td>
+      <td><%=h bedallocation.patient.first_name %></td>
+      <td><%=h bedallocation.comments %></td>
+
+      <td><%= link_to 'Edit',edit_bedallocation_path(bedallocation) %> | <%= link_to 'Vacate', bedallocation, :confirm => 'Are you sure?',
+            :method => :delete %> |</td> 
+
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<p><%= link_to 'Allocate Bed', new_bedallocation_path,:class => "add_button round" %></p>
+
+<script type="text/javascript">
+function update_beds() {
+     d_id = document.getElementById("bedallocation_room_id").value;
+     jQuery.get('/bedallocation/update_beds', {id: d_id}, function () {
+      });
+      
+  }
+</script>
+

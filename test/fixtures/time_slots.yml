@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  start_time: 2018-08-17 17:55:10
+  end_time: 2018-08-17 17:55:10
+  doctor: 
+
+two:
+  start_time: 2018-08-17 17:55:10
+  end_time: 2018-08-17 17:55:10
+  doctor: 

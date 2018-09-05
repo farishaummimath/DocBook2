@@ -1,0 +1,19 @@
+<h2>Create Slots</h2>
+<% form_for @timeslot do |f| %>
+  <%= f.error_messages %>
+  
+  <div class="field">
+        <%= f.label :doctor, "Doctor"%><br />
+        <%= f.select :doctor_id, Doctor.all.collect {|x| [x.first_name, x.id]}, {:include_blank => "Choose"} %><br />
+  </div>
+  <div class="field">
+    <%= f.label :start_time,"Enter start time in HH:MM:SS" %><br />
+    <%= f.text_field :start_time %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time, "Enter End time in HH:MM:SS" %><br />
+    <%= f.text_field :end_time%>
+  </div>
+<div class="actions"><%= f.submit "Create" %></div>
+   
+<% end %>

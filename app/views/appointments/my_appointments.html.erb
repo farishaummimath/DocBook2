@@ -1,0 +1,24 @@
+<% if @myappointments.empty?  %>
+<p style="color:#900"><i>------ No Appointments to list----</i></p>
+
+<% else %>
+<table>
+  <tr>
+    <th>Doctor Name</th>
+    <th>Appointment Date</th>
+    <th>Appointment Slot</th>
+
+  </tr>
+
+<% for appointment in @myappointments %>
+  <tr style="color:#000;">
+      <td><%=h appointment.doctor.first_name %></td>
+      <td><%=h appointment.appointment_date %></td>
+      <td><%=h appointment.time_slot.start_time.strftime("%I:%M:%p")%> - <%=h appointment.time_slot.end_time.strftime("%I:%M:%p") %></td>
+      <td><%= link_to 'Cancel', appointment, :confirm => 'Are you sure?',
+            :method => :delete %></td> 
+
+  </tr>
+<% end %>
+</table>
+<% end %>

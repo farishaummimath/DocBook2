@@ -1,0 +1,15 @@
+<h2>Create Department </h2> 
+<% form_for @department do |f| %>
+	<%= f.error_messages %>
+ 	<div class="field">
+	  	<%= f.label :name %><br /> 
+	  	<%= f.text_field :name %> 
+ 	</div>
+    <div class="field">
+    	<%= f.label :about %><br /> 
+	  	<%= f.text_field :about %>
+    </div>
+    <div class="actions"> 
+    	<%= f.submit "Save" %>
+    </div>
+<% end %>

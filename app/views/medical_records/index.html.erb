@@ -1,0 +1,28 @@
+<% if @medical_records.empty?  %>
+<p style="color:#900"><i>------ You have no medical records----</i></p>
+
+<% else %>
+<table>
+  <tr>
+    <th>Patient Name</th>
+  </tr>
+
+<% for medical_record in @medical_records %>
+  <tr>
+   <td><strong><%= link_to h(medical_record.patient.first_name) %></strong></td>
+   <td><%= link_to "View", medical_record %></td>
+  </tr>
+<% end %>  
+ </table>
+<% end %> 
+<div><%= link_to 'Add Medical Record', new_medical_record_path, :class => "signup_button" %>
+</div>
+
+    
+    
+    
+    
+    
+    
+    
+    

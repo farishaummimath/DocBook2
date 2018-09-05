@@ -1,0 +1,15 @@
+<%=image_tag("#{Rails.root}/public/images/logo.png", :alt =>"DocBook", :class => "round") %>
+<h3 style="text-align: center"> Users Report </h3>
+<table class="pdftable">
+  <tr>
+    <th>UserName</th>
+    <th>UserType</th>
+  </tr>
+
+<% for user in @users %>
+  <tr style="color:#000;">
+      <td><%=h user.username %></td>
+      <td><%=h user.user_type %></td>
+  </tr>
+<% end %>
+</table>

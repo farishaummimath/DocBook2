@@ -1,0 +1,108 @@
+<% if !current_user %> 
+<div id = "intro">
+<h4> Welcome to <a href="#">DocBook</a>  </h4> 
+<p> DocBook Hospital Management System is a computer or web based system that 
+    facilitates managing the functioning of the hospital or any medical set up.
+    This system or software will help in making the whole functioning paperless. ...
+    It has sections for various professionals that make up a hospital</p>
+</div>
+<div id="login_form">
+    <table>
+        <tr><td> Want to Book Doctor appointment?<%= link_to "Register Here",new_patient_path, :class => "signup_button round" %></td></tr>
+        <tr><td> Already has an account?<%= link_to "Sign in here",signin_path, :class => "signup_button round" %></td></tr>
+    </table>
+</div>
+<% else %>
+  <% if current_user.doctor%> 
+  <h4> Hi, <%= current_user.doctor.first_name %> <%= current_user.doctor.last_name %> !</h4>
+  <div class="links">
+      <div class="link-div">
+          <div class="link_heading"> 
+              <%= link_to "My Patients",mypatients_path %>
+          </div>
+          <div class="link_desc"> 
+              View all your patients and add medical records
+         
+        /signin  </div>
+      </div> 
+      <div class="link-div" style="float:right;margin:8px">
+          <div class="link_heading"> 
+              <%= link_to "My Profile",current_user.doctor %>
+          </div>
+          <div class="link_desc"> 
+              View and edit your profile
+          </div>
+      </div> 
+          
+   <div>    
+  <% elsif current_user.patient %> 
+  <h4> Hi, <%= current_user.patient.first_name %> <%= current_user.patient.last_name %> !</h4>
+  <div class="links">
+      <div class="link-div">
+          <div class="link_heading"> 
+              <%= link_to "Book Appointment",new_appointment_path %>
+          </div>
+          <div class="link_desc"> 
+             Book appointments based on doctor availability
+         
+          </div>
+      </div> 
+      <div class="link-div" style="float:right;margin:8px">
+          <div class="link_heading"> 
+              <%= link_to "My Appointments",my_appointments_appointments_path %>
+          </div>
+          <div class="link_desc"> 
+              View all your booked appointments.
+           </div>
+      </div> 
+      <div class="link-div">
+          <div class="link_heading"> 
+              <%= link_to "My Medical Records",my_medical_records_medical_records_path %>
+          </div>
+          <div class="link_desc"> 
+             Book appointments based on doctor availability
+         
+          </div>
+      </div> 
+      <div class="link-div" style="float:right;margin:8px">
+          <div class="link_heading"> 
+              <%= link_to "My Profile",current_user.patient %>
+          </div>
+          <div class="link_desc"> 
+              View and edit your profile
+          </div>
+      </div> 
+          
+   <div>
+  <% else %>
+  <h4> Hi, Admin !</h4>
+  <table id="admin_menu">
+    <th> User Management</th>  
+    <tr> <td><%= link_to "Manage Users",users_path, :class => "signup_button " %></td></tr>
+    <th> Patient management </th>  
+    <tr>  <td><%= link_to "Manage Patients",patients_path, :class => "signup_button " %></td></tr>
+    <th> Doctor management </th>  
+    <tr>
+        <td><%= link_to "Manage Departments",departments_path, :class => "signup_button " %></td>
+        <td><%= link_to "Manage Doctors",doctors_path, :class => "signup_button " %></td>
+    </tr>
+    <tr>
+        <td><%= link_to "Manage Doctor Slots",time_slots_path, :class => "signup_button " %></td>
+        <td><%= link_to "Manage Doctors",doctors_path, :class => "signup_button " %></td>
+    </tr>
+    <th> Room Management </th>  
+    <tr>
+        <td><%= link_to "Manage Rooms",room_dashboard_rooms_path, :class => "signup_button "%></td>
+        <td><%= link_to "Manage Beds",beds_path, :class => "signup_button "%></td>
+    </tr>
+    <tr><td><%= link_to "Manage Bed Allocation",bedallocations_path, :class => "signup_button "%></td></tr>
+    <th> Appointment Management </th>  
+
+    <tr>
+        <td><%= link_to "Manage Appointment",appointments_path, :class => "signup_button " %></td>
+    </tr>
+  </table>
+  <% end %>
+  
+
+<% end %>

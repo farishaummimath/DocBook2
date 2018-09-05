@@ -1,0 +1,13 @@
+<h4>MedicalRecords</h4>
+<p><strong style="color:black">Patient Name:</strong><%=@medical_record.patient.first_name + @medical_record.patient.last_name%></p>
+<p><strong style="color:black">Comments :</strong> <%=@medical_record.comments%></p>
+<p><strong style="color:black">Doctor Name:</strong><%=@medical_record.doctor.first_name + @medical_record.doctor.last_name%></p>
+<p><strong style="color:black">Patient Condition:</strong><%=@medical_record.patient_condition%></p>
+<p><strong style="color:black">Medication_given:</strong><%=@medical_record.medication_given%></p>
+<p><strong style="color:black">Recommended to Admit</strong><%=@medical_record.recommended_to_admit%></p>
+<p><strong style="color:black"> File attached : </strong><%= @medical_record.document_file_name%> <%= link_to 'Download',@medical_record.document.url%></p>
+<% if current_user.doctor %>
+<p><%= link_to 'Download', medical_record_pdf_medical_records_path(:patient_id =>@medical_record.patient.id,:id=>@medical_record.id)%> </p>
+<% elsif current_user.patient %>
+<p><%= link_to 'Download Report', my_medical_record_pdf_medical_records_path(:id=>@medical_record.id)%> </p>
+<% end %>

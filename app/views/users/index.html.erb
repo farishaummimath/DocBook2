@@ -1,0 +1,23 @@
+<h1>Listing USers</h1>
+<% if @users.empty?  %>
+<p style="color:#900"><i>------ No users to list----</i></p>
+
+<% else %>
+<table>
+  <tr>
+    <th>UserName</th>
+    <th>UserType</th>
+  </tr>
+
+<% for user in @users %>
+  <tr style="color:#000;">
+      <td><%=h user.username %></td>
+      <td><%=h user.user_type %></td>
+      
+
+  </tr>
+<% end %>
+</table>
+<% end %>
+<p style="float:left"><%= link_to 'Download', show_pdf_users_path%></p>
+

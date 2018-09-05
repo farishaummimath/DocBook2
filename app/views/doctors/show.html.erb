@@ -1,0 +1,13 @@
+<h4>Doctor Profile</h4>
+<div class=" field">User Name: <%=@doctor.user.username%></div>
+<div class=" field">First Name: <%=@doctor.first_name%></div>
+<div class=" field">Last Name: <%=@doctor.last_name%></div>
+<div class=" field">Department: <%=@doctor.department.name%></div>
+<div class=" field">Date of Birth: <%=@doctor.date_of_birth%></div>
+<div class=" field">Gender: <%=@doctor.gender%></div>
+<div class=" field">Contact Number: <%=@doctor.contact_number%></div>
+<div class=" field">Email: <%=@doctor.email%></div>
+<div class=" field">Nationality: <%=@doctor.nationality%></div>
+<div class=" field">Qualification <%=@doctor.qualifications%></div>
+
+<p><%= link_to 'Edit Profile', edit_doctor_path(@doctor),:class => "add_button round" %></p>

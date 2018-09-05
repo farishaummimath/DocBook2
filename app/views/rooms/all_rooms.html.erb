@@ -1,0 +1,23 @@
+<h1>Rooms</h1>
+<table>
+  <tr>
+    <th>Room Number</th>
+    <th>Total Beds </th>
+    <th>Occupied Beds in %</th>
+    <th>Available Beds in %</th>
+    
+  </tr>
+
+<% for bed in @beds %>
+  <tr style="color:#000;">
+      <td><%=h bed.room_number %></td>
+      <td><%=h bed.total_beds %></td>
+      <td><%=h bed.occupied_beds %></td>
+      <td><%=h bed.available_beds %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="export_button_div"><%= link_to 'Export Rooms', room_export_path, :class => "export_button" %>
+</div>
+

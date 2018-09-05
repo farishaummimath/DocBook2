@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  patient: 
+  doctor: 
+  medication_given: MyString
+  comments: MyString
+  recommended_to_admit: false
+
+two:
+  patient: 
+  doctor: 
+  medication_given: MyString
+  comments: MyString
+  recommended_to_admit: false

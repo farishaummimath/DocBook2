@@ -1,0 +1,20 @@
+<% if @mypatients.empty?  %>
+<p style="color:#900"><i>------ No Appointments to list----</i></p>
+
+<% else %>
+<table>
+  <tr>
+    <th>Patient Name</th>
+  </tr>
+
+<% for patient in @mypatients %>
+    <tr>
+      <td> <strong><%= link_to h(patient.first_name),patient %></strong></td>
+      <td> <strong><%= link_to 'Show Records',show_patient_record_medical_records_path(:patient_id => patient.id) %></strong></td>
+
+  </tr>  
+<% end %>  
+ </table>
+<% end %> 
+<div><%= link_to 'All Medical Records', medical_records_path, :class => "signup_button" %>
+</div>

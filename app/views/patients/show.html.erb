@@ -1,0 +1,19 @@
+<h4>Patient Profile</h4>
+  <div id = "image">
+      <div class="sidebar round"><%= image_tag @patient.photo.url(:medium) %></div>
+
+  </div>    
+  <div id ="info">
+    <div class="field">Username: <%=@patient.user.username%></div>
+    <div class="field">First Name: <%=@patient.first_name%></div>
+    <div class="field">Last Name: <%=@patient.last_name%></div>
+    <div class="field">Date of Birth: <%=@patient.date_of_birth%></div>
+    <div class="field">Gender: <%=@patient.gender%></div>
+    <div class="field">Contact Number: <%=@patient.contact_number%></div>
+    <div class="field">Email: <%=@patient.email%></div>
+    <div class="field">Nationality: <%=@patient.nationality%></div>
+    <div class="field">Blood Group <%=@patient.blood_group%></div>
+    <p><strong style="color:black"> File attached : <%=@patient.photo_file_name%> <%= link_to 'Download',@patient.photo.url%></p>
+
+    <div><%= link_to 'Edit Profile', edit_patient_path(@patient),:class => "add_button round" %></div>
+  </div>

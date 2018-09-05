@@ -1,0 +1,27 @@
+<h2>Book Appointment</h2>
+<% form_for @appointment do |f| %>
+  <%= f.error_messages %>
+  
+  <div class="field" >
+    <%= f.label :department, "Department"%><br />
+      <%= select :appointment, :department_id, options_for_select(Department.all.map {|c| [t(c.name), c.id]}, :selected => @appointment.department_id), {:prompt=> "#{t('select_a_department')}"}, :onchange => "update_doctors(j(this).val());" %>                            
+  </div>
+
+  <div class="field" id="cities_list">
+     <%= f.label :doctor, "Doctor"%><br />
+     <%= t("doctor") %>
+     <%= select :appointment, :doctor_id, options_for_select(@doctors.map {|c| [t(c.first_name),c.id]}, :selected => @appointment.doctor_id) %>
+  </div>
+
+
+
+
+<script type="text/javascript">
+function update_doctors(department_id) {
+      j.get('/appointment/update_doctors', {id: department_id}, function () {
+      });
+  }
+</script>
+
+
+

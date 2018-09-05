@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <th>Doctor name</th>
+    <th>Start time  for Doctors</th>
+    <th>End time slot for Doctors</th>
+  </tr>
+
+<% for timeslot in @timeslots %>
+  <tr style="color:#000;">
+      <td><%=h timeslot.doctor.first_name%> <%=h timeslot.doctor.last_name%> </td>
+      <td><%=h timeslot.start_time.strftime('%I:%M:%p')%> </td>
+      <td><%=h timeslot.end_time.strftime('%I:%M:%p') %></td>
+      <td><%= link_to 'Destroy', timeslot, :confirm => 'Are you sure?',
+            :method => :delete %></td> 
+
+  </tr>
+<% end %>
+</table>
+<div><%= link_to 'Add Slots', new_time_slot_path, :class => "signup_button" %>
+</div>

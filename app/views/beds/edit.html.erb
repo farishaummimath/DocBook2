@@ -1,0 +1,14 @@
+<h2>Add Bed</h2>
+  <% form_for @bed do |f| %>
+    <%= f.error_messages %>
+
+    <div class="field">
+        <%= f.label :room_number%><br />
+        <%= f.select :room_id, Room.all.collect {|x| [x.room_number, x.id]}, {:include_blank => "Choose"} %><br />
+    </div>
+    <div class="field">
+      <%= f.label :bed_number%><br />
+      <%= f.text_field :bed_number %>
+    </div>
+    <div class="actions"><%= f.submit "Update" %></div>
+<% end %>

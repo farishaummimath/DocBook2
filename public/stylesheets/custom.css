@@ -1,0 +1,276 @@
+.container {
+    width : 710px;
+ }
+ body {
+     background :#fff;
+     color:#ed2421;
+ }
+ .error, .alert, .notice, .success, .info {padding:0.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error, .alert {background:#fbe3e4;color:#8a1f11;border-color:#fbc2c4;}
+.notice {background:#fff6bf;color:#514721;border-color:#ffd324;}
+.success {background:#e6efc2;color:#264409;border-color:#c6d880;}
+.info {background:#d5edf8;color:#205791;border-color:#92cae4;}
+.error a, .alert a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
+.info a {color:#205791;}
+
+ #header {
+     padding-top: 20px;
+ }
+ /*#header img {
+     padding: 1.5em;
+ }*/
+ #content {
+	margin-top: 1px;
+	font-size: 120%;
+	padding: 30px;
+	background: #fff;
+}
+
+
+/*Links*/
+a {
+	color: #CC0000;
+	text-decoration: none;
+}
+a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+a:visited {
+	color: #CC0000;
+	text-decoration: none;
+}
+
+/* navigation*/
+.navigation {
+       float: right;
+	background-color: white;
+	padding: 0 0.7em;
+	white-space: nowrap;
+
+}
+ul.navigation {
+	margin: 0;
+
+}
+.navigation li {
+	list-style-type: none;
+	display: inline-block;
+	padding: 0.2em 0;
+
+}
+.navigation li a {
+	padding: 0 5px;
+	font-weight: bold;
+}
+.navigation li a:visited {
+	color: #CC0000;
+}
+.navigation li a:hover {
+	text-decoration: underline;
+}
+#signup-div {
+
+	margin: 2px;
+}
+a.signup_button {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	width: 200px;
+	color: #fff;
+	background: #e92f2f;
+}
+a.export_button {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	width: 100px;
+	color: #fff;
+	background: grey
+}
+.export_button_div {
+    float:right
+}
+a.add_button {
+        color: #ffffff;
+        margin-left: auto;
+	margin-right: auto;
+	display: block;
+	text-align: center;
+	width: 100px;
+	background: #F51929;
+        
+
+    
+}
+.round {
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius:  10px;
+}
+/*Sign */
+div.field, div.actions {
+	margin-bottom: 10px;
+}
+
+.fieldWithErrors {
+	background-color: red;
+	display: table;
+        color: #fff;
+
+}
+.fieldWithErros label {
+	color: #fff;
+}
+#errorExplanation {
+	width: 300px;
+	border: 2px solid red;
+	padding: 2px;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+	background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+	text-align: left;
+	font-weight: bold;
+	padding: 5px 5px 5px 15px;
+	font-size: 12px;
+	margin: -7px;
+	background-color: #c00;
+	color: #fff;
+}
+
+#errorExplanation p {
+	color: #333;
+	margin-bottom: 0;
+        padding: 2px;
+}
+
+
+#errorExplanation ul li {
+	font-size: 15px;
+	list-style: square;
+	font-size: 50%;
+	font-weight: bold;
+	padding: 5px;
+}
+table {border-collapse: collapse;}
+td    {padding: 6px;}
+ 
+/*table th{	text-align: center;}
+
+/* styling footer 
+#footer {
+	text-align: center;
+	margin-top: 10px;
+	/* width: 900px;
+
+	margin-left: auto;
+	margin-right: auto;
+}
+#footer .navigation {
+	float: none;
+	border: 2px solid red;
+	padding: 7px;
+	padding-bottom: 12px;
+	margin-bottom: 20px;
+	background-color: #f0f0f0;
+}*/
+
+/* styling footer */
+#footer {
+	text-align: center;
+	margin-top: 10px;
+	/* width: 900px;*/
+	margin-left: auto;
+	margin-right: auto;
+}
+#footer .navigation {
+	float: none;
+}
+
+ul.users {
+    margin-top: 1em;
+}
+
+.users li {
+    list-style: none;
+    
+}
+
+table#admin_menu tr td{
+    background: none;
+  //  width: 200px;
+    float:none;
+}
+div.sidebar img{
+ vertical-align: top;
+
+}
+div#image{
+       width: 18.33%;
+       float: right;
+       background: #ffc;
+       padding: 5px;
+       margin: 0 auto;
+}
+
+div#info{
+    width: 70%;
+    float:left  
+}
+
+#intro {
+    width :50%;
+    height :250px;
+    float:left;
+
+    border:grey solid 1px;
+    padding :4px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	border-radius:  10px;
+    
+}
+#intro p {
+    color:black
+}
+
+#login_form {
+    float:right;
+    width :40%;
+        height :250px;
+
+    border:grey solid 1px;
+    padding :4px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+	border-radius:  10px;
+    
+  
+}
+#login_form table td {
+    background: none;
+}
+.links{
+    width: 700px;
+    margin: 0px auto;
+}
+.link-div {
+    margin: 10px 40px;
+    width: 275px;
+    float: left;
+    height: 80px;
+}
+.link_desc {
+    margin-top: 5px;
+    color: #666;
+    text-align: justify;
+    font-size: 14px;
+}

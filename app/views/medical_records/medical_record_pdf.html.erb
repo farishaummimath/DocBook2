@@ -1,0 +1,16 @@
+<%=image_tag("#{Rails.root}/public/images/logo.png", :alt =>"DocBook", :class => "round") %>
+<h3 style="text-align: center"> Users Report </h3>
+<table class="pdftable">
+    <th><h4>MedicalRecords</h4></th>
+
+<% for p in @patient_records %>
+<tr style="color:#000;"> <td>First Name </td><td><%=h p.patient.first_name %></td></tr>
+<tr style="color:#000;"> <td>Last Name </td><td><%=h p.patient.last_name %></td></tr>
+<tr style="color:#000;"> <td>Doctor Name </td><td><%=h p.doctor.first_name %> <%=h p.doctor.last_name %> </td></tr>
+<tr style="color:#000;"> <td>Patient_condition </td><td><%=h p.patient_condition%></td></tr>
+<tr style="color:#000;"> <td>Medication_given:</td><td><%=h p.medication_given%></td></tr>
+<tr style="color:#000;"> <td>Recommended to Admit</td><td><%=h p.recommended_to_admit%></td></tr>
+<tr style="color:#000;"> <td>File attached :</td><td><%= p.document_file_name%></td></tr>
+ 
+<% end %>
+</table>

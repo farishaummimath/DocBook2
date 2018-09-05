@@ -1,0 +1,35 @@
+<div class="links">
+      <div class="link-div">
+          <div class="link_heading"> 
+              <%= link_to "Book Appointment",new_appointment_path %>
+          </div>
+          <div class="link_desc"> 
+             Book appointments based on doctor availability
+         
+          </div>
+      </div> 
+      <div class="link-div" style="float:right;margin:8px">
+          <div class="link_heading"> 
+              <%= link_to "My Appointments",my_appointments_appointments_path %>
+          </div>
+          <div class="link_desc"> 
+              View all your booked appointments.
+           </div>
+      </div> 
+      <div class="link-div">
+          <div class="link_heading"> 
+              <%= link_to "My Medical Records",my_medical_records_medical_records_path %>
+          </div>
+          <div class="link_desc"> 
+             Book appointments based on doctor availability
+         
+          </div>
+      </div> 
+      <div class="link-div" style="float:right;margin:8px">
+          <div class="link_heading"> 
+              <%= link_to "My Profile",current_user.patient %>
+          </div>
+          <div class="link_desc"> 
+              View and edit your profile
+          </div>
+      </div> 

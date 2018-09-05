@@ -1,0 +1,22 @@
+<h1>Listing Departments</h1>
+
+<table>
+  <tr>
+    <th>Department Name</th>
+    <th>About</th>
+  </tr>
+
+<% for department in @departments %>
+  <tr style="color:#000;">
+      <td><%=h department.name %></td>
+      <td><%=h department.about %></td>
+      <td><%= link_to 'Show', department %></td>
+      <td><%= link_to 'Edit', edit_department_path(department) %></td>
+      <td><%= link_to 'Destroy', department, :confirm => 'Are you sure?',
+            :method => :delete %></td> 
+
+  </tr>
+<% end %>
+</table>
+<p><%= link_to 'Add new Department', new_department_path,:class => "add_button round" %></p>
+

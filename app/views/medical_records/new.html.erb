@@ -1,0 +1,34 @@
+
+<h6> Medical Record </h6>
+<% form_for @medicalrecord, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <div class="field">
+      <%= f.label :Patient_Name %><br /> 
+      <%= f.select :patient_id, options_for_select(@mypatients.map{|x| [x.first_name+"-" +x.last_name, x.id]}),{:include_blank => "Select a Patient"} %><br />
+
+  </div>
+  <div class="field">
+          <%= f.label :patient_condition %><br /> 
+          <%= f.text_field :patient_condition %> 
+  </div>
+  <div class="field">
+      <%= f.label :medication_given %><br /> 
+      <%= f.text_field :medication_given %>
+  </div>
+    <div class="field">
+      <%= f.label :comments %><br /> 
+      <%= f.text_field :comments %>
+  </div>
+  <div class="field">
+     <%= f.label :document, "Upload Documents" %>
+   	 <%= f.file_field :document %>
+   </div>
+    <div class="field">
+      <%= f.hidden_field :doctor_id, :value => current_user.doctor.id %>
+  </div>
+  <div class="actions"> 
+      <%= f.submit "Save" %>
+  </div>
+<% end %>
+

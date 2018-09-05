@@ -1,0 +1,30 @@
+<h1>Listing Doctors</h1>
+<% if @doctors.empty?  %>
+<p style="color:#900"><i>------ No doctors to list----</i></p>
+
+<% else %>
+<table>
+  <tr>
+    <th>Doctor Name</th>
+    <th>About</th>
+    <th>Email</th>
+    <th>Department</th>
+
+  </tr>
+
+<% for doctor in @doctors %>
+  <tr style="color:#000;">
+      <td><%=h doctor.first_name %></td>
+      <td><%=h doctor.last_name %></td>
+      <td><%=h doctor.email %></td>
+      <td><%=h doctor.department.name %></td>
+      <td><%= link_to 'Show', doctor %></td>
+      <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+      <td><%= link_to 'Destroy', doctor, :confirm => 'Are you sure?',
+            :method => :delete %></td> 
+
+  </tr>
+<% end %>
+</table>
+<% end %>
+<p><%= link_to 'Add new Doctor', new_doctor_path,:class => "add_button round" %></p>

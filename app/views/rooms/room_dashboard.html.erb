@@ -1,0 +1,35 @@
+
+<div class="links">
+      <div class="link-div">
+          <div class="link_heading"> 
+              <%= link_to "Rooms",rooms_path %>
+          </div>
+          <div class="link_desc">   
+              Manage your hospital rooms
+          </div>
+      </div> 
+      <div class="link-div" style="float:right;margin:8px">
+          <div class="link_heading"> 
+              <%= link_to "Beds",beds_path %>
+          </div>
+          <div class="link_desc"> 
+              Manage your hospital beds under rooms
+           </div>
+      </div> 
+      <div class="link-div">
+          <div class="link_heading"> 
+              <%= link_to "Room Allocation",bedallocations_path %>
+          </div>
+          <div class="link_desc"> 
+             Book appointments based on doctor availability
+         
+          </div>
+      </div> 
+      <div class="link-div" style="float:right;margin:8px">
+          <div class="link_heading"> 
+              <%= link_to "Room Utilisation Report",room_details_path %>
+          </div>
+          <div class="link_desc"> 
+            Download  Room Utilisation CSV Report
+          </div>
+      </div> 

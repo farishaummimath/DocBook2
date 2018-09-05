@@ -1,0 +1,23 @@
+<% if @patient_records.empty?  %>
+<p style="color:#900"><i>------ You have no medical records----</i></p>
+
+<% else %>
+<table>
+  <tr>
+      <th> SL.No</th>
+      <th> Created Date</th>
+      <th>Patient Name</th>
+    
+  </tr>
+
+<% @patient_records.each_with_index do |patient_record,i| %>
+  <tr>
+      <td><%= (i+1) %></td>   
+   <td><strong><%= h(patient_record.created_at.strftime("%d-%m-%Y")) %></strong></td>
+   <td><strong><%= link_to h(patient_record.patient.first_name),patient_record.patient %></strong></td>
+   <td><%= link_to "View", patient_record %></td>
+  </tr>
+<% end %>  
+ </table>
+<% end %> 
+

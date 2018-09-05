@@ -1,0 +1,15 @@
+<h1>Room#new</h1>
+<% form_for @room do |f| %>
+	<%= f.error_messages %>
+ 	<div class="field">
+	  	<%= f.label :room_number %><br /> 
+	  	<%= f.text_field :room_number %> 
+ 	</div>
+    <div class="field">
+    	<%= f.label :room_details %><br /> 
+	  	<%= f.text_field :room_details %>
+    </div>
+    <div class="actions"> 
+    	<%= f.submit "update" %>
+    </div>
+<% end %>

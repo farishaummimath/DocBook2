@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  appointment_date: 2018-08-20
+  department: 
+  doctor: 
+  patient: 
+  time_slot: 
+
+two:
+  appointment_date: 2018-08-20
+  department: 
+  doctor: 
+  patient: 
+  time_slot: 

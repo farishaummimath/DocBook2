@@ -1,0 +1,24 @@
+<div id="header">
+    <%= link_to logo,root_path %>
+   
+<ul class ="navigation round">
+    <li><%= link_to "Home", root_path%></li>
+    <li><%= link_to "Contact", contact_path%></li>
+    <li><%= link_to "About", about_path %></li>
+    <%  if current_user %>
+      <% if current_user.doctor%>
+        <li>Logged in as:<%= current_user.doctor.first_name %> <%= current_user.doctor.last_name %> </li>
+        <li><%= link_to "My Profile", current_user.doctor %></li>
+      <% elsif current_user.patient %> 
+        <li>Logged in as: <%= current_user.patient.first_name %> <%= current_user.patient.last_name %></li>
+        <li><%= image_tag current_user.patient.photo.url(:thumb) %></li>
+        <li><%= link_to "My Profile", current_user.patient %></li>
+    <% else %> 
+      <%= current_user.username%>  
+     <%end%>
+    <li><%= link_to "Sign Out", signout_path %></li>
+    <% else %>
+    <li><%= link_to "Sign In", signin_path %></li>
+    <% end %>
+</ul>
+    

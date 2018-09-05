@@ -1,0 +1,38 @@
+
+<h2>Allocate Bed</h2>
+<% form_for @bedallocation do |f| %>
+  <%= f.error_messages %>
+  
+  <div class="field" >
+    <%= f.label :room, "Room Number"%><br />
+    <%= f.select :room_id, options_for_select(@rooms.map {|c| [c.room_number, c.id]}),{:include_blank => "Choose Room"}, :onchange => "update_beds();" %>                            
+    
+  </div>
+
+  <div class="field" id="beds_list">
+     <%= f.label :bed, "Bed Number"%><br />
+     <%= f.select :bed_id, options_for_select(@beds.map {|c| [(c.bed_number),c.id]})%>
+  </div>
+  <div class="field">
+        <%= f.label :patient, "Patient"%><br />
+        <%= f.select :patient_id, options_for_select(@patients.map {|x| [x.first_name+"-" +x.last_name, x.id]}),{:include_blank => "Choose Patient"} %><br />
+  </div>
+  <div class="field">
+        <%= f.label :comments, "Comments"%><br />
+        <%= f.text_field :comments %><br />
+  </div>
+
+<div class="actions"><%= f.submit "Create" %></div>
+<% end %>
+
+<script type="text/javascript">
+function update_beds() {
+    d_id = document.getElementById("bedallocation_room_id").value;
+      jQuery.get('/bedallocations/update_beds', {id: d_id}, function () {
+      });
+  }
+
+</script>
+
+
+

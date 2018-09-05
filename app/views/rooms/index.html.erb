@@ -1,0 +1,22 @@
+<h1>Rooms</h1>
+
+<table>
+  <tr>
+    <th>Room Name</th>
+    <th>Details</th>
+  </tr>
+
+<% for room in @rooms %>
+  <tr style="color:#000;">
+      <td><%=h room.room_number %></td>
+      <td><%=h room.room_details %></td>
+      <td><%= link_to 'Show', room %></td>
+      <td><%= link_to 'Edit', edit_room_path(room) %></td>
+      <td><%= link_to 'Destroy', room, :confirm => 'Are you sure?',
+            :method => :delete %></td> 
+
+  </tr>
+<% end %>
+</table>
+<p><%= link_to 'Add new Room', new_room_path,:class => "add_button round" %></p>
+

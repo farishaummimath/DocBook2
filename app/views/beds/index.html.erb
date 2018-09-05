@@ -1,0 +1,25 @@
+<h1>Listing Beds</h1>
+<% if @beds.empty?  %>
+<p style="color:#900"><i>------ No beds to list----</i></p>
+
+<% else %>
+  <table>
+    <tr>
+      <th>Bed Number</th>
+      <th>Room Number</th>
+    </tr>
+
+  <% for bed in @beds %>
+    <tr style="color:#000;">
+        <td><%=h bed.bed_number %></td>
+        <td><%=h bed.room.room_number %></td>
+        <td><%= link_to 'Show', bed %></td>
+        <td><%= link_to 'Edit', edit_bed_path(bed) %></td>
+        <td><%= link_to 'Destroy', bed, :confirm => 'Are you sure?',
+              :method => :delete %></td> 
+
+    </tr>
+  <% end %>
+  </table>
+<% end %>
+<p><%= link_to 'Add new Bed', new_bed_path,:class => "add_button round" %></p>

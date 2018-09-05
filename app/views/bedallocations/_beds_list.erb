@@ -1,0 +1,5 @@
+<br />
+<%= label :bed, "Bed Number"%><br />
+<%= select :bedallocation, :bed_id, options_for_select(@beds.map {|c| [c.bed_number,c.id]})%>
+
+       

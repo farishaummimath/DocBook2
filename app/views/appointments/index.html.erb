@@ -1,0 +1,45 @@
+<h1>All Appointments</h1>
+<% if @appointments.empty?  %>
+<p style="color:#900"><i>------ No doctors to list----</i></p>
+
+<% else %>
+<table>
+  <tr>
+    <th>Doctor Name</th>
+    <th>Patient Name</th>
+    <th>Appointment Date</th>
+    <th>Appointment Slot</th>
+
+  </tr>
+
+<% for appointment in @appointments %>
+  <tr style="color:#000;">
+      <td><%=h appointment.doctor.first_name %></td>
+      <td><%=h appointment.patient.first_name %></td>
+      <td><%=h appointment.appointment_date %></td>
+      <td><%= link_to 'Show', appointment %></td>
+      <td><%= link_to 'Destroy', appointment, :confirm => 'Are you sure?',
+            :method => :delete %></td> 
+
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+
+<script type="text/javascript">
+function update_doctors() {
+     d_id = document.getElementById("appointment_department_id").value;
+     jQuery.get('/appointment/update_doctors', {id: d_id}, function () {
+      });
+      
+  }
+</script>
+<script type="text/javascript">
+function update_slots() {
+      doc_id = document.getElementById("appointment_doctor_id").value;
+      d=2;
+      jQuery.get('/appointments/update_slots', {id: d}, function () {
+      });
+  }
+</script>
