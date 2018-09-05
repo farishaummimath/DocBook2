@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username,:password
   validates_uniqueness_of :username, :case_sensitive => false
   
-  before_create :encrypt_password
+  before_save :encrypt_password
   
   def role_symbols
     symbols = []
@@ -34,10 +34,12 @@ class User < ActiveRecord::Base
   def self.authenticate(username, submitted_password)
     
   	user = User.find_by_username(username)
-    if (user && user.has_password?(submitted_password))
-      return user
-    else
-      return nil
+    if submitted_password.present?
+      if (user && user.has_password?(submitted_password))
+        return user
+      else
+        return nil
+      end
     end
       
   end
@@ -45,10 +47,10 @@ class User < ActiveRecord::Base
   private
   
 		def encrypt_password
-        if password.present?
-          self.salt = make_salt
-          self.encrypted_password = encrypt(password)
-        end
+      self.salt = make_salt  if new_record?
+
+      self.encrypted_password = encrypt(password)
+        
       
 		end
 
@@ -58,7 +60,6 @@ class User < ActiveRecord::Base
 
 		def make_salt
 			secure_hash("#{Time.now.utc}#{password}")
-			
 		end
 
 		def secure_hash(string)
