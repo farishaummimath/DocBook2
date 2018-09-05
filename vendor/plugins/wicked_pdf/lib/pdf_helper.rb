@@ -78,7 +78,7 @@ module PdfHelper
         html_str = render_to_string(:template => options[hf][:html][:template], :layout => options[:layout], :locals => options[hf][:html][:locals])
         nok = Nokogiri::HTML(html_str)        
         nok_result = nok.xpath("//img")
-        if nok_result.present? and FedenaSetting.s3_enabled?          
+        if nok_result.present?   
           nok_result.each do |nok|
             s3_url = nok.attributes['src'].value
             if verify_http_https_file s3_url
