@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   has_one :patient,:dependent => :destroy
   
   attr_accessor :password
-
   attr_accessible :username, :password, :user_type
   
   validates_presence_of :username,:password
